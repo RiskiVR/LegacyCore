@@ -16,7 +16,7 @@ namespace LegacyCore
 
         private static readonly Vector2 _canvasSize = new(100, 50);
 
-        private const string kAuthorNameText = "Kaitlyn's";
+        private const string kAuthorNameText = "Kaitlyn & RiskiVR";
         private const float kAuthorNameFontSize = 7f;
 
         private static readonly Vector2 _authorNamePosition = new(0, 28);

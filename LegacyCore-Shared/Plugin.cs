@@ -7,7 +7,7 @@ namespace LegacyCore
 {
     public class Plugin : IPlugin
     {
-        public const string VersionString = "1.0.0";
+        public const string VersionString = "1.1.0";
 
         public string Name => "LegacyCore";
         public string Version => VersionString;

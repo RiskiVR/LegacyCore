@@ -17,6 +17,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)Custom\CustomLevelSO.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ProgressBar.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)SimpleJSON.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Utilities\BeatmapUtil.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Utilities\IResetableSO.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Plugin.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Utilities\PoolSO.cs" />

@@ -179,8 +179,7 @@ namespace LegacyCore
                         customLevel.SetAudioClip(_emptyAudioClip);
                         characteristicCustomLevels[characteristic] = customLevel;
                     }
-                    else
-                        customLevel = characteristicCustomLevels[characteristic];
+                    else customLevel = characteristicCustomLevels[characteristic];
 
                     List<StandardLevelSO.DifficultyBeatmap> difficultyBeatmaps;
                     if (!characteristicDifficultyBeatmaps.ContainsKey(characteristic))
@@ -188,8 +187,7 @@ namespace LegacyCore
                         difficultyBeatmaps = new List<StandardLevelSO.DifficultyBeatmap>();
                         characteristicDifficultyBeatmaps[characteristic] = difficultyBeatmaps;
                     }
-                    else
-                        difficultyBeatmaps = characteristicDifficultyBeatmaps[characteristic];
+                    else difficultyBeatmaps = characteristicDifficultyBeatmaps[characteristic];
 
                     foreach (var difficultyBeatmap in difficultyBeatmapSet.difficultyBeatmaps)
                     {
@@ -202,7 +200,7 @@ namespace LegacyCore
                             }
 
                             var beatmapData = _beatmapDataPool.Get();
-                            beatmapData.SetJsonData(difficultyBeatmap.jsonData);
+                            beatmapData.SetJsonData(BeatmapUtil.ConvertBeatmapToV2(difficultyBeatmap.jsonData));
 
                             if (!Enum.TryParse<LevelDifficulty>(difficultyBeatmap.difficulty, out var difficulty))
                             {
