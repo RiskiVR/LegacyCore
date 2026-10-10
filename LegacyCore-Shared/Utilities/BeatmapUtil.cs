@@ -56,7 +56,7 @@ namespace LegacyCore.Utilities
                 V3ColorNote source = v3.colorNotes[i];
                 V2Note note = new V2Note();
 
-                note._time = source.b - 0.5f;
+                note._time = source.b;
                 note._lineIndex = source.x;
                 note._lineLayer = source.y;
                 note._type = source.c;
@@ -72,7 +72,7 @@ namespace LegacyCore.Utilities
                 V3BombNote source = v3.bombNotes[i];
                 V2Note note = new V2Note();
 
-                note._time = source.b - 0.5f;
+                note._time = source.b;
                 note._lineIndex = source.x;
                 note._lineLayer = source.y;
                 note._type = 3; // v2 bomb
@@ -96,7 +96,7 @@ namespace LegacyCore.Utilities
                 }
 
                 V2Obstacle obstacle = new V2Obstacle();
-                obstacle._time = source.b - 0.5f;
+                obstacle._time = source.b;
                 obstacle._lineIndex = source.x;
                 obstacle._duration = source.d;
                 obstacle._width = source.w;
