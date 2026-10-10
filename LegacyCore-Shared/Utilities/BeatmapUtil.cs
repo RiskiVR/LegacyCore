@@ -100,7 +100,7 @@ namespace LegacyCore.Utilities
                 obstacle._lineIndex = source.x;
                 obstacle._duration = source.d;
                 obstacle._width = source.w;
-                obstacle._type = source.h < 3 ? 1 : 0;
+                obstacle._type = source.h == 3 ? 1 : 0;
 
                 obstacles.Add(obstacle);
             }
