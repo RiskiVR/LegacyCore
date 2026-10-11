@@ -15,8 +15,6 @@ namespace LegacyCore.Utilities
         /// </summary>
         public static string filePath;
 
-        private static DateTime _startTime = Process.GetCurrentProcess().StartTime.ToUniversalTime();
-
         private static void Write(string value)
         {
             Console.WriteLine(value);
@@ -25,13 +23,13 @@ namespace LegacyCore.Utilities
                 File.AppendAllText(filePath, $"{value}\r\n");
         }
 
-        private static void LogInternal(ConsoleColor color, string type, string message, string memberName)
+        private static void LogInternal(ConsoleColor color, string type, string message)
         {
             Console.ForegroundColor = color;
 
             foreach (var value in message.Split('\n'))
             {
-                Write($"[{DateTime.UtcNow - _startTime}, {type}] | {memberName} > {value}");
+                Write($"[TwitchIntegrationPlugin @ {DateTime.Now.ToString("HH:mm")}] [{type}] {value}");
             }
 
             Console.ResetColor();
@@ -42,24 +40,24 @@ namespace LegacyCore.Utilities
         /// </summary>
         /// <param name="message">The message to write.</param>
         /// <param name="memberName">The sender of the message.</param>
-        public static void Info(string message, [CallerMemberName] string memberName = "")
-            => LogInternal(ConsoleColor.White, "Info", message, memberName);
+        public static void Info(string message)
+            => LogInternal(ConsoleColor.White, "Info", message);
 
         /// <summary>
         /// Logs a warning message.
         /// </summary>
         /// <param name="message">The message to write.</param>
         /// <param name="memberName">The sender of the message.</param>
-        public static void Warning(string message, [CallerMemberName] string memberName = "")
-            => LogInternal(ConsoleColor.Yellow, "Warning", message, memberName);
+        public static void Warning(string message)
+            => LogInternal(ConsoleColor.Yellow, "Warning", message);
 
         /// <summary>
         /// Logs an error message.
         /// </summary>
         /// <param name="message">The message to write.</param>
         /// <param name="memberName">The sender of the message.</param>
-        public static void Error(string message, [CallerMemberName] string memberName = "")
-            => LogInternal(ConsoleColor.Red, "Error", message, memberName);
+        public static void Error(string message)
+            => LogInternal(ConsoleColor.Red, "Error", message);
 
         /// <summary>
         /// Attempt to run an action, if an <see cref="Exception"/> occurs
@@ -74,7 +72,7 @@ namespace LegacyCore.Utilities
             }
             catch (Exception e)
             {
-                Error(e.ToString(), "Exception");
+                Error(e.ToString());
             }
         }
     }
