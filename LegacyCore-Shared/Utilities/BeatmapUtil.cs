@@ -89,15 +89,9 @@ namespace LegacyCore.Utilities
             {
                 V3Obstacle source = v3.obstacles[i];
 
-                if (source.x < 0 || source.x > 3)
-                {
-                    LogUtil.Error("Skipping obstacle with invalid x=" + source.x + ", time=" + source.b);
-                    continue;
-                }
-
                 V2Obstacle obstacle = new V2Obstacle();
                 obstacle._time = source.b;
-                obstacle._lineIndex = source.x;
+                obstacle._lineIndex = Mathf.Clamp(source.x, 0, 3);
                 obstacle._duration = source.d;
                 obstacle._width = source.w;
                 obstacle._type = source.h == 3 ? 1 : 0;
